@@ -1,0 +1,36 @@
+ilk önce app config dosyasýný sil.En son aþaðýdaki ayarlarý yapýp programý çalýþtýrýnca zaten bir daha kendi oluþturucak ayarlarý
+Daha Sonra Projeye Sað týk yapýp properties kýsmýna gir ve orda ayarlarý ekle.
+
+
+Database.Designer.cs dosyasýnda aþaðýdaki ayarlarý yap
+
+
+//Sallama isim verdik(Kamil.)
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Kamil")]
+	public partial class DatabaseDataContext : System.Data.Linq.DataContext
+	{
+		
+		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
+
+
+
+
+        //Propertilerden connectioný oluþturduk.
+		public DatabaseDataContext() :
+        base(global::Otomasyon.Properties.Settings.Default.cs1 + Otomasyon.Properties.Settings.Default.cs_Sunucu + Otomasyon.Properties.Settings.Default.cs2 + Otomasyon.Properties.Settings.Default.cs_Database + Otomasyon.Properties.Settings.Default.cs3 + Otomasyon.Properties.Settings.Default.cs_UserID + Otomasyon.Properties.Settings.Default.cs4 + Otomasyon.Properties.Settings.Default.cs_Password, mappingSource)
+		{
+			OnCreated();
+		}
+
+
+--Database ayarlarýnýn value deðerlerinin tutulduðu yer. Gizli dosyalarý göster demeliyiz. Xml dosyasýdýr.
+C:\Users\RAMAZAN\AppData\Local\Otomasyon\Otomasyon.vshost.exe_Url_quu1syi0x5hjfgvu0dvzr5rrxcvybs4f\1.0.0.0  
+
+
+//SQL de yeni kullanýcý oluþturmak için 
+Securitye gir Logins sað týkla yeni user ekle
+General kýsmýnda Sql Authenticationý seç LoginName ve User Passsword gir.
+Server Roles kýsmýnda en alttaki sysadmini seç
+User Mapping kýsmýnda yetki verdiðimiz Databaseleri seç
+Ýþlem tamam 
+bu kullanýcý programda Baðlantý ayarlarýn kaydet kýsmýnda ekleyip connection string oluþturabiliriz.
